@@ -15,7 +15,7 @@ steps:
 # Example of an inline PowerShell script
 - script: |
     pwsh -Command "./app_details.ps1"
-    displayname: 'actual script'
+    displayName: 'actual script'
  
 # You would typically have your PowerShell script in your repository, e.g., 'your-script.ps1'
 # Example content for your-script.ps1:

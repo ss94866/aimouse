@@ -12,7 +12,7 @@ connect-mggraph -tenantid $tenantid -clientsecretcredential $credential -nowelco
 
 [datetime]$date = (get-date).adddays(-7)
 #$sp = get-mgserviceprincipal -filter "createddatetime ge $date"
-$sp = get-mgserviceprincipal -filter "displayname eq 'testauto'"
+$sp = get-mgserviceprincipal -filter "displayname eq 'check00'"
 $sp.displayname
 
 # $sp | %{ $_.displayname}

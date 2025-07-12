@@ -12,7 +12,7 @@ pool:
 steps:
   # Step 1: Install Python manually
   - script: |
-      node --v
+      node -v
 
   # # Step 2: Install dependencies
   # - script: |

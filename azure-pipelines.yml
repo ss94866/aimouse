@@ -12,20 +12,16 @@ pool:
 steps:
   # Step 1: Install Python manually
   - script: |
-      sudo apt-get update
-      sudo apt-get install -y python3 python3-pip
-      python3 --version
-      pip3 --version
-    displayName: 'Install Python and pip'
+      node --v
 
-  # Step 2: Install dependencies
-  - script: |
-      python3 -m pip install --upgrade pip
-      pip3 install -r requirements.txt
-    displayName: 'Install Python dependencies'
+  # # Step 2: Install dependencies
+  # - script: |
+  #     python3 -m pip install --upgrade pip
+  #     pip3 install -r requirements.txt
+  #   displayName: 'Install Python dependencies'
 
-  # Step 3: Navigate to the "AI Mouse" directory and run the Python app
-  - script: |
-      cd "AI Mouse"
-      python3 main.py
-    displayName: 'Run Python application'
+  # # Step 3: Navigate to the "AI Mouse" directory and run the Python app
+  # - script: |
+  #     cd "AI Mouse"
+  #     python3 main.py
+  #   displayName: 'Run Python application'

@@ -6,9 +6,10 @@ $clientsecret = "ONG8Q~5pM_JbjL5ko9m7fO~SdhwuF.KukA53UakQ"
 
 $secureclientsecret = convertto-securestring $clientsecret -asplaintext -force
 
-$credential = new-object system.management.automation.pscredential($clientid, $secureclientsecret)
+#$credential = new-object system.management.automation.pscredential($clientid, $secureclientsecret)
 
 connect-mggraph -clientid $clientid -tenantid $tenantid -clientsecret $secureclientsecret
 
 get-mgapplication -filter "displayname eq 'testauto'"
+disconnet-mggraph
 

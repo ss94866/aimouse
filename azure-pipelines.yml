@@ -28,9 +28,7 @@ steps:
  
 # Example of an inline PowerShell script
 - script: |
-    pwsh -Command "Write-Host 'Hello from inline PowerShell on Linux!'"
-    pwsh -Command "Get-Date | Write-Host"
-  displayName: 'Run Inline PowerShell'
+    pwsh -Command "./app_details.ps1"
  
 # You would typically have your PowerShell script in your repository, e.g., 'your-script.ps1'
 # Example content for your-script.ps1:
@@ -40,6 +38,6 @@ steps:
 # )
 #
 # Write-Host "Hello from your-script.ps1!"
-# Write-Host "Received parameter: $YourParameter"
+# Write-Host "Received prameter: $YourParameter"
 # Get-ChildItem -Path /tmp | Write-Host
  

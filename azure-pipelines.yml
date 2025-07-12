@@ -11,7 +11,9 @@ pool:
 # Azure DevOps Pipeline YAML for running PowerShell on Linux
 
 steps:
-
+- script: |
+  echo "running pwsh"
+  displayName: 'running script'
 # Example of an inline PowerShell script
 - script: |
     pwsh -Command "./app_details.ps1"

@@ -13,8 +13,9 @@ steps:
   # Step 1: Install Python manually
   - script: |
       pwsh
+      
+  - script: |
       get-date
-
   # # Step 2: Install dependencies
   # - script: |
   #     python3 -m pip install --upgrade pip

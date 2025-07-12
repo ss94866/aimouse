@@ -11,6 +11,8 @@ $credential = new-object system.management.automation.pscredential($clientid, $s
 connect-mggraph -tenantid $tenantid -clientsecretcredential $credential -nowelcome
 
 [datetime]$date = (get-date).adddays(-7)
-get-mgserviceprincipal -filter "createddatetime ge $date"
+$sp = get-mgserviceprincipal -filter "createddatetime ge $date"
+
+$sp | %{ $_.displayname}
 disconnect-mggraph
 

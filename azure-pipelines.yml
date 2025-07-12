@@ -8,19 +8,38 @@ pool:
   name: test  # Specify the self-hosted agent pool name
   demands: 
     - agent.name -equals test  # Ensure the agent name matches 'test'
+# Azure DevOps Pipeline YAML for running PowerShell on Linux
 
 steps:
-  # Step 1: Install Python manually
-  - script: |
-       - pwsh: | get-date
-  # # Step 2: Install dependencies
-  # - script: |
-  #     python3 -m pip install --upgrade pip
-  #     pip3 install -r requirements.txt
-  #   displayName: 'Install Python dependencies'
-
-  # # Step 3: Navigate to the "AI Mouse" directory and run the Python app
-  # - script: |
-  #     cd "AI Mouse"
-  #     python3 main.py
-  #   displayName: 'Run Python application'
+- script: |
+    echo "Running PowerShell script on Linux agent..."
+    # Ensure pwsh is in the PATH, or provide the full path to your pwsh executable
+    # If pwsh is not directly in PATH, you might need to specify the full path, e.g., /usr/local/bin/pwsh
+   # pwsh -File $(System.DefaultWorkingDirectory)/your-script.ps1 -YourParameter "someValue"
+  displayName: 'Run PowerShell Script'
+ 
+# - task: PowerShell@2 # You can also use the PowerShell task, but ensure it uses pwsh
+#   inputs:
+#     targetType: 'filePath'
+#     filePath: '$(System.DefaultWorkingDirectory)/your-script.ps1'
+#     arguments: '-YourParameter "anotherValue"' # Pass parameters if your script accepts them
+#     pwsh: true # This explicitly tells the task to use pwsh (PowerShell Core)
+#   displayName: 'Run PowerShell Script using PowerShell@2 task'
+ 
+# Example of an inline PowerShell script
+- script: |
+    pwsh -Command "Write-Host 'Hello from inline PowerShell on Linux!'"
+    pwsh -Command "Get-Date | Write-Host"
+  displayName: 'Run Inline PowerShell'
+ 
+# You would typically have your PowerShell script in your repository, e.g., 'your-script.ps1'
+# Example content for your-script.ps1:
+#
+# param(
+#     [string]$YourParameter
+# )
+#
+# Write-Host "Hello from your-script.ps1!"
+# Write-Host "Received parameter: $YourParameter"
+# Get-ChildItem -Path /tmp | Write-Host
+ 

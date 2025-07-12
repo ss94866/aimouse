@@ -12,7 +12,7 @@ pool:
 steps:
   # Step 1: Install Python manually
   - script: |
-      pwsh;
+      pwsh
       get-date
 
   # # Step 2: Install dependencies

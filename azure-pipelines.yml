@@ -1,11 +1,13 @@
-# Azure Pipeline YAML script for Python application
+# Azure Pipeline YAML script for Python application using self-hosted agent
 trigger:
   branches:
     include:
       - main
 
 pool:
-  vmImage: 'ubuntu-latest'
+  name: test  # Specify the self-hosted agent pool name
+  demands: 
+    - agent.name -equals test  # Ensure the agent name matches 'test'
 
 steps:
   # Step 1: Install Python manually

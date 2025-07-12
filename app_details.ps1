@@ -10,8 +10,9 @@ $credential = new-object system.management.automation.pscredential($clientid, $s
 
 connect-mggraph -tenantid $tenantid -clientsecretcredential $credential -nowelcome
 
-$sp = get-mgserviceprincipal -all
-# $sp = get-mgserviceprincipal -filter "displayname eq 'check00'"
+# $sp = get-mgserviceprincipal -all
+$sp = get-mgserviceprincipal -filter "displayname eq 'check00'"
+$sp
 
 $sp | %{ $_.displayname}
 disconnect-mggraph
